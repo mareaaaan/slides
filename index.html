@@ -11,7 +11,7 @@
     <title>Slides</title>
 </head>
 <body>
-    
+
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Slides</a>
@@ -24,10 +24,13 @@
           </div>
         </div>
       </nav>
-
-    <input type="file" id="file-selector" accept=".md">
-
+    <div class="container-fluid">
+        <input type="file" class="form-control" id="file-selector" accept=".md">
+        <button type="button" class="btn btn-primary" id="save-button">Save</button>
+    </div>
     <textarea name="file-contents" id="file-contents" cols="30" rows="10"></textarea>
+
+
 
     <footer class="text-center text-lg-start">
         <!-- Copyright -->
