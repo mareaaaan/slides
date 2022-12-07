@@ -8,3 +8,12 @@ footer {
     margin-top: auto;
     background-color: #caced1;
 }
+
+textarea {
+    background-color:  #121212;
+    border:1px solid #0dddf0;
+    padding: 10px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    color:white;
+}
