@@ -1,59 +1,11 @@
 import Reveal from 'reveal.js';
 import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js';
+import {loadFileIntoEditor, downloadFile} from './fileio.js'
 
 const fileSelector = document.getElementById('file-selector');
 const saveButton = document.getElementById('save-button');
 const editor = document.getElementById('editor');
 const slides = document.getElementsByClassName("slides")[0];
-
-async function loadFileIntoEditor(event) {
-    var fileText = await readMarkdownFile(event.target.files[0])
-    if(fileText) {
-        editor.value = fileText;
-    } else {
-        alert("Error reading the file");
-    }
-}
-
-async function readMarkdownFile(file) {
-    if(file) {
-        if(!isMarkdownFile(file)) {
-            return;
-        }
-        return await file.text();
-    }
-    else {
-        return;
-    }
-}
-
-function isMarkdownFile(file) {
-    return "md" === getFileExtension(file);
-}
-
-function getFileExtension(file) {
-    return file.name.split('.').pop().toLowerCase();
-}
-
-async function downloadFile(filename, content) {
-    const blob = new Blob([content], { type: 'plain/text' });
-    const fileHandle = getNewFileHandle(filename);
-    const fileStream = await fileHandle.createWritable();
-    await fileStream.write(blob);
-    await fileStream.close();
-};
-
-async function getNewFileHandle(filename) {
-    const opts = {
-      types: [{
-        suggestedName: filename,
-        description: 'Markdown file',
-        accept: {'text/plain': ['.md']},
-      }],
-    };
-    return await window.showSaveFilePicker(opts);
-  }
-
   
   function keyPress(e) {
     if(e.keyCode == 83 && e.ctrlKey) {
