@@ -34,3 +34,14 @@ footer {
     resize: none;
     flex: 1 0 auto;
 }
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* width: 240px; */
+}
+
+.side-button {
+    flex: 1 0 auto;
+}

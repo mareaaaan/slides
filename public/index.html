@@ -26,24 +26,25 @@
           </div>
         </div>
       </nav>
-
-    <input type="file" class="form-control" id="file-selector" accept=".md">
-    <button type="button" class="btn btn-primary" id="save-button">Save</button>
     
-    <div class="main">
-      <div class="editor-container">
-        <textarea name="file-contents" id="editor" cols="30" rows="10"></textarea>
-      </div>
-      <div class="preview-container">
-              <div class="reveal">
-                  <div class="slides">
-                      <section data-markdown>
-                      <textarea data-template id="code"></textarea>
-                      </section>
-                  </div>
-              </div>
+  <div class="main">
+    <div class="bg-dark p-3 sidebar">
+      <input type="file" class="form-control" id="file-selector" accept=".md">
+      <button type="button" class="btn btn-primary" id="save-button">Save</button>
+    </div>
+    <div class="editor-container">
+      <textarea name="file-contents" id="editor" cols="30" rows="10"></textarea>
+    </div>
+    <div class="preview-container">
+      <div class="reveal">
+          <div class="slides">
+              <section data-markdown>
+              <textarea data-template id="code"></textarea>
+              </section>
+          </div>
       </div>
     </div>
+  </div>
 
 
     <footer class="text-center text-lg-start">
