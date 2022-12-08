@@ -25,12 +25,12 @@ footer {
 }
 
 #editor {
-    background-color:  #121212;
+    background-color:  #b3b3b3;
     border:1px solid #0dddf0;
     padding: 10px;
     overflow-y: scroll;
     overflow-x: scroll;
-    color:white;
+    color:#202020;
     resize: none;
     flex: 1 0 auto;
 }
