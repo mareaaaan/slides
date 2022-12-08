@@ -6,8 +6,6 @@ const saveButton = document.getElementById('save-button');
 const editor = document.getElementById('editor');
 const slides = document.getElementsByClassName("slides")[0];
 
-
-
 async function loadFileIntoEditor(event) {
     var fileText = await readMarkdownFile(event.target.files[0])
     if(fileText) {
@@ -34,7 +32,7 @@ function isMarkdownFile(file) {
 }
 
 function getFileExtension(file) {
-    return extension = file.name.split('.').pop().toLowerCase();
+    return file.name.split('.').pop().toLowerCase();
 }
 
 async function downloadFile(filename, content) {
