@@ -1,8 +1,11 @@
 const editor = document.getElementById('editor');
+const filenameInput = document.getElementById('filename-input');
 
 export async function loadFileIntoEditor(event) {
-    var fileText = await readMarkdownFile(event.target.files[0])
-    if(fileText) {
+    var filename = getFileName(event.target.files[0]);
+    var fileText = await readMarkdownFile(event.target.files[0]);
+    if(fileText && filename) {
+        filenameInput.value = filename;
         editor.value = fileText;
     } else {
         alert("Error reading the file");
@@ -29,26 +32,19 @@ function getFileExtension(file) {
     return file.name.split('.').pop().toLowerCase();
 }
 
+function getFileName(file) {
+    return file.name.split('.')[0];
+}
 
-async function getNewFileHandle(filename) {
-    const opts = {
-      types: [{
-        suggestedName: filename,
-        description: 'Markdown file',
-        accept: {'text/plain': ['.md']},
-      }],
-    };
-    return await window.showSaveFilePicker(opts);
-  }
 
-export async function downloadFile(filename, content) {
+export async function downloadFile() {
     
-    const blob = new Blob([content], { type: 'plain/text' });
+    const blob = new Blob([editor.value], { type: 'plain/text' });
     const url = window.URL.createObjectURL(blob);
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = filename;
+    a.download = filenameInput.value + '.md';
     a.style.display = 'none';
 
     document.body.append(a);

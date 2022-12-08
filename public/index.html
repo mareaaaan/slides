@@ -14,22 +14,28 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Slides</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Slides</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+      </div>
+    </div>
+  </nav>
     
   <div class="main">
     <div class="bg-dark p-3 sidebar">
-      <input type="file" class="form-control" id="file-selector" accept=".md">
+
+      <input type="file" id="file-selector" accept=".md" hidden>
+      <label for="file-selector" class="btn btn-secondary" id="file-selector-label">Choose File</label>
+      
+      <input class="form-control" type="text" id="filename-input"placeholder="filename">
+
+
       <button type="button" class="btn btn-primary" id="save-button">Save</button>
     </div>
     <div class="editor-container">
@@ -47,13 +53,11 @@
   </div>
 
 
-    <footer class="text-center text-lg-start">
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2022 Copyright:
-          <a class="text-dark" href="#">Nicolae-Marian Gartu</a>
-        </div>
-        <!-- Copyright -->
-      </footer>
+  <footer class="text-center text-lg-start">
+      <div class="text-center p-3" style="background-color: #00000033;">
+        © 2022 Copyright:
+        <a class="text-dark" href="#">Nicolae-Marian Gartu</a>
+      </div>
+  </footer>
 </body>
 </html>

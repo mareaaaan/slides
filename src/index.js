@@ -8,7 +8,7 @@ const editor = document.getElementById('editor');
 fileSelector.addEventListener('change', loadFileIntoEditor);
 
 saveButton.addEventListener('click', function () {
-    downloadFile('file.md', editor.value);
+    downloadFile();
 })
 
 document.addEventListener('keydown', loadPreviewOnCtrlS);

@@ -38,10 +38,9 @@ footer {
 .sidebar {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    /* width: 240px; */
+    gap: 10px;
 }
 
-.side-button {
-    flex: 1 0 auto;
+#save-button {
+    margin-top: auto;
 }
