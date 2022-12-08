@@ -9,6 +9,21 @@ footer {
     background-color: #caced1;
 }
 
+.main {
+    flex: 1 0 auto;
+    display: flex;
+}
+
+.editor-container {
+    flex: 1;
+    display: flex;
+}
+
+.preview-container {
+    flex: 1;
+    display: flex;
+}
+
 #editor {
     background-color:  #121212;
     border:1px solid #0dddf0;
@@ -16,4 +31,6 @@ footer {
     overflow-y: scroll;
     overflow-x: scroll;
     color:white;
+    resize: none;
+    flex: 1 0 auto;
 }
