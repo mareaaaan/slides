@@ -42,9 +42,19 @@ async function getNewFileHandle(filename) {
   }
 
 export async function downloadFile(filename, content) {
+    
     const blob = new Blob([content], { type: 'plain/text' });
-    const fileHandle = getNewFileHandle(filename);
-    const fileStream = await fileHandle.createWritable();
-    await fileStream.write(blob);
-    await fileStream.close();
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+
+    document.body.append(a);
+
+    a.click();
+    a.remove();
+
+    window.URL.revokeObjectURL(url);
 };
