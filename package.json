@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/K20055612/slides/issues"
   },
-  "homepage": "https://github.com/K20055612/slides#readme"
+  "homepage": "https://github.com/K20055612/slides#readme",
+  "dependencies": {
+    "reveal.js": "^4.4.0"
+  }
 }
