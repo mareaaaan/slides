@@ -1,5 +1,7 @@
 import Reveal from 'reveal.js';
 import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js';
+import RevealHighlight from 'reveal.js/plugin/highlight/highlight.esm.js';
+import RevealMath from 'reveal.js/plugin/math/math.esm.js';
 
 const editor = document.getElementById('editor');
 const slides = document.getElementsByClassName("slides")[0];
@@ -25,7 +27,17 @@ function createPreviewCode() {
 }
 
 export const deck = new Reveal( document.querySelector( '.reveal' ), {
-        plugins: [ Markdown ],
+        katex: {
+            version: 'latest',
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        },
+        plugins: [ Markdown , RevealHighlight, RevealMath.KaTeX],
         embedded: true,
         keyboardCondition: 'focused' 
     }   
