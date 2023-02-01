@@ -5,7 +5,7 @@ import { enableEditorTabs } from './editor.js';
 const fileSelector = document.getElementById('file-selector');
 const saveButton = document.getElementById('save-button');
 const editor = document.getElementById('editor');
-const printButton = document.getElementById('print-button');
+const compileButton = document.getElementById('compile-button');
 
 fileSelector.addEventListener('change', loadFileIntoEditor);
 
@@ -18,8 +18,8 @@ enableEditorTabs();
 document.addEventListener('keydown', loadPreviewOnCtrlS);
 deck.initialize();
 
-printButton.addEventListener('click', function () {
-    var presentation = window.open('./presentation.html');
+compileButton.addEventListener('click', function () {
+    var presentation = window.open('./presentation.html?print-pdf');
     presentation.onload = function () {
         let text = editor.value;
         presentation.document.getElementById("slides").innerHTML = text;
