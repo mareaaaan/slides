@@ -8,5 +8,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js'
+    },
+    experiments: {
+        topLevelAwait: true
     }
 };
