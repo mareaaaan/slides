@@ -10,16 +10,17 @@ import RevealMath from 'reveal.js/plugin/math/math.esm.js';
 
 // slides.addEventListener("change", initializePresentation());
 
-// function initializePresentation () {
-//     Reveal.initialize({
-//         hash: true,
-//         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
-//     });
-// }
+async function initializePresentation () {
+    await Reveal.initialize({
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+    });
+}
+    
 
-// 
 
-await Reveal.initialize();
+await Reveal.initialize({
+    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+});
 if(! window.location.href.includes("?print-pdf")) {
    window.open("?print-pdf", "_self");
 }
