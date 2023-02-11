@@ -16,14 +16,8 @@ export function loadPreviewOnCtrlS(event) {
 function reloadPreview() {
     let text = editor.value;
     deck.destroy();
-    let code = createPreviewCode();
-    code.textContent = text;
+    slides.innerHTML = text;
     deck.initialize();
-}
-
-function createPreviewCode() {
-    slides.innerHTML = '<section data-markdown><textarea data-template id="code"></textarea></section>';
-    return document.getElementById("code");
 }
 
 export const deck = new Reveal( document.querySelector( '.reveal' ), {
