@@ -20,6 +20,7 @@ deck.initialize();
 
 compileButton.addEventListener('click', function () {
     var presentation = window.open('./presentation.html');
+    // var presentation = window.open('./presentation.html?print-pdf');
     presentation.onload = function () {
         let text = editor.value;
         presentation.document.getElementsByClassName("slides")[0].innerHTML = text;
