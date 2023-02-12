@@ -19,9 +19,10 @@ document.addEventListener('keydown', loadPreviewOnCtrlS);
 deck.initialize();
 
 compileButton.addEventListener('click', function () {
-    var presentation = window.open('./presentation.html?print-pdf');
-    presentation.onload = function () {
+    var presentation = window.open('./presentation.html');
+    presentation.addEventListener("DOMContentLoaded", function () {
         let text = editor.value;
-        presentation.document.getElementById("slides").innerHTML = text;
-    }
+        presentation.document.getElementsByClassName("slides")[0].innerHTML = text;
+        console.log(text);
+    })
 })

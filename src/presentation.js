@@ -6,15 +6,18 @@ import RevealNotes from 'reveal.js/plugin/notes/notes.esm.js';
 import RevealMath from 'reveal.js/plugin/math/math.esm.js';
 
 
-const slides = document.getElementById('slides');
+const slides = document.getElementsByClassName("slides")[0];
 
-slides.addEventListener("change", initializePresentation());
+const deck = new Reveal( document.querySelector( '.reveal' ), {
+    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+}   
+);
 
 function initializePresentation () {
-    Reveal.initialize({
-        hash: true,
-        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
-    });
+    deck.initialize();
 }
 
-window.print();
+
+// slides.addEventListener("change", initializePresentation());
+window.addEventListener("load", Reveal.initialize());
+
