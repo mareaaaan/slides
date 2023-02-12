@@ -23,6 +23,6 @@ compileButton.addEventListener('click', function () {
     presentation.addEventListener("DOMContentLoaded", function () {
         let text = editor.value;
         presentation.document.getElementsByClassName("slides")[0].innerHTML = text;
-        console.log(text);
+        console.log(presentation.document.getElementsByClassName("slides")[0].innerHTML );
     })
 })

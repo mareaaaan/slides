@@ -6,18 +6,24 @@ import RevealNotes from 'reveal.js/plugin/notes/notes.esm.js';
 import RevealMath from 'reveal.js/plugin/math/math.esm.js';
 
 
-const slides = document.getElementsByClassName("slides")[0];
+const slides = document.querySelector(".slides");
 
-const deck = new Reveal( document.querySelector( '.reveal' ), {
-    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
-}   
-);
+const mutationObserver = new MutationObserver(entries => {Reveal.initialize()});
+var config = { childList: true, subtree: true };
+mutationObserver.observe(slides, config);
 
-function initializePresentation () {
-    deck.initialize();
-}
+// const deck = new Reveal( document.querySelector( '.reveal' ), {
+//     plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+// }   
+// );
+
+// function initializePresentation () {
+//     deck.initialize();
+// }
 
 
 // slides.addEventListener("change", initializePresentation());
-window.addEventListener("load", Reveal.initialize());
+// window.addEventListener("load", Reveal.initialize());
+
+// window.addEventListener("load", console.log("slides.innerHTML"));
 
