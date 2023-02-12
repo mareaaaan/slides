@@ -37,6 +37,15 @@ export const deck = new Reveal( document.querySelector( '.reveal' ), {
     }   
 );
 
+export function openPresentationWindow() {
+    var presentation = window.open('./presentation.html');
+    presentation.addEventListener("DOMContentLoaded", function () {
+        let text = editor.value;
+        presentation.document.getElementsByClassName("slides")[0].innerHTML = text;
+        console.log(presentation.document.getElementsByClassName("slides")[0].innerHTML );
+    })
+}
+
 document.addEventListener('keydown', loadPreviewOnCtrlS);
 
 deck.initialize();

@@ -8,22 +8,14 @@ import RevealMath from 'reveal.js/plugin/math/math.esm.js';
 
 const slides = document.querySelector(".slides");
 
-const mutationObserver = new MutationObserver(entries => {Reveal.initialize()});
+
+const deck = new Reveal({
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+    }   
+);
+
+const mutationObserver = new MutationObserver(entries => {deck.initialize()});
 var config = { childList: true, subtree: true };
 mutationObserver.observe(slides, config);
 
-// const deck = new Reveal( document.querySelector( '.reveal' ), {
-//     plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
-// }   
-// );
-
-// function initializePresentation () {
-//     deck.initialize();
-// }
-
-
-// slides.addEventListener("change", initializePresentation());
-// window.addEventListener("load", Reveal.initialize());
-
-// window.addEventListener("load", console.log("slides.innerHTML"));
 

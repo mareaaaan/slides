@@ -1,5 +1,5 @@
 import {loadFileIntoEditor, downloadFile} from './fileio.js';
-import {deck, loadPreviewOnCtrlS} from './slides.js';
+import {deck, loadPreviewOnCtrlS, openPresentationWindow} from './slides.js';
 import { enableEditorTabs } from './editor.js';
 
 const fileSelector = document.getElementById('file-selector');
@@ -16,13 +16,7 @@ saveButton.addEventListener('click', function () {
 enableEditorTabs();
 
 document.addEventListener('keydown', loadPreviewOnCtrlS);
-deck.initialize();
 
-compileButton.addEventListener('click', function () {
-    var presentation = window.open('./presentation.html');
-    presentation.addEventListener("DOMContentLoaded", function () {
-        let text = editor.value;
-        presentation.document.getElementsByClassName("slides")[0].innerHTML = text;
-        console.log(presentation.document.getElementsByClassName("slides")[0].innerHTML );
-    })
-})
+compileButton.addEventListener('click', openPresentationWindow);
+
+deck.initialize();
