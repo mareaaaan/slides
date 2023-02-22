@@ -17,7 +17,7 @@ const deck = new Reveal({
 
 const mutationObserver = new MutationObserver(async entries => {
     window.history.replaceState( {} , "Print", '?print-pdf' );
-    await deck.initialize();
+    deck.initialize();
     mutationObserver.disconnect();
 });
 
