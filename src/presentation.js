@@ -9,7 +9,10 @@ const slides = document.querySelector(".slides");
 
 
 const deck = new Reveal({
-        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealAnimate],
+        animate: {
+            autoplay: true
+        }
     }   
 );
 

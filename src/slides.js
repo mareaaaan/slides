@@ -33,9 +33,12 @@ export const deck = new Reveal( document.querySelector( '.reveal' ), {
             ],
             ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre']
         },
-        plugins: [ Markdown , RevealHighlight, RevealMath.KaTeX],
+        plugins: [ Markdown , RevealHighlight, RevealMath.KaTeX, RevealAnimate],
         embedded: true,
-        keyboardCondition: 'focused' 
+        keyboardCondition: 'focused',
+        animate: {
+            autoplay: true
+        }
     }   
 );
 
