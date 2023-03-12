@@ -1,5 +1,6 @@
 @import "/node_modules/reveal.js/dist/reveal.css"; 
 @import "/node_modules/reveal.js/dist/theme/black.css"; 
+@import "/node_modules/reveal.js/plugin/highlight/zenburn.css"; 
 @import "/node_modules/reveal.js/plugin/highlight/monokai.css";
 @import "/node_modules/reveal.js-plugins/chalkboard/style.css";
 @import "/node_modules/reveal.js-plugins/customcontrols/style.css";
@@ -8,6 +9,7 @@ body {
     min-height: 100vh;
     display:flex; 
     flex-direction:column; 
+    pointer-events: auto;
 }
 
 footer {
