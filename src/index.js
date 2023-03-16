@@ -19,4 +19,16 @@ document.addEventListener('keydown', loadPreviewOnCtrlS);
 
 compileButton.addEventListener('click', openPresentationWindow);
 
+const socket = new WebSocket('ws://localhost:8080');
+
+socket.onmessage = ({data}) => {
+    console.log('Message from server' , data);
+}
+
+function sendSomething(event) {
+    console.log("caca");
+}
+
+window.oncontextmenu = sendSomething;
+
 deck.initialize();
