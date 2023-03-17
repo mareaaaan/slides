@@ -25,10 +25,4 @@ socket.onmessage = ({data}) => {
     console.log('Message from server' , data);
 }
 
-function sendSomething(event) {
-    console.log("caca");
-}
-
-window.oncontextmenu = sendSomething;
-
 deck.initialize();
