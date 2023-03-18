@@ -2,6 +2,8 @@ var express = require('express');
 var slideApp = express();
 var remoteApp = express();
 
+const IP = require('ip');
+
 
 slideApp.use('/node_modules', express.static(__dirname + '/node_modules'));
 slideApp.use('/dist', express.static(__dirname + '/dist'));
@@ -16,8 +18,21 @@ var remoteserver = remoteApp.listen(8001);
 
 
 const WebSocket = require('ws');
-const server2 = new WebSocket.Server({port: '8080'});
 
-server2.on('connection', socket => {
-    socket.send('Roger That!');
+const bridgeToRemoteServer = new WebSocket.Server({port: '8002'});
+const bridgeToSlidesServer = new WebSocket.Server({port: '8003'});
+var bridgeToSlidesServerSocket;
+
+bridgeToSlidesServer.on('connection', function connection(ws) {
+    bridgeToSlidesServerSocket = ws;
+    ws.send(IP.address());
+});
+
+
+bridgeToRemoteServer.on('connection', function connection(ws) {
+    ws.on('error', console.error);
+  
+    ws.on('message', function message(data) {
+        bridgeToSlidesServerSocket.send(data.toString());
+    });
 });

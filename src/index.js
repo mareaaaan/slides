@@ -19,10 +19,22 @@ document.addEventListener('keydown', loadPreviewOnCtrlS);
 
 compileButton.addEventListener('click', openPresentationWindow);
 
-const socket = new WebSocket('ws://localhost:8080');
+var ipAddress;
+
+const socket = new WebSocket('ws://localhost:8003');
 
 socket.onmessage = ({data}) => {
-    console.log('Message from server' , data);
+    if(data == 'up') {
+        deck.navigateUp();
+    } else if(data == 'left') {
+        deck.navigateLeft();
+    } else if(data == 'down')  {
+        deck.navigateDown();
+    }  else if(data == 'right') {
+        deck.navigateRight();
+    } else {
+        ipAddress = data.toString();
+    }
 }
 
 deck.initialize();
