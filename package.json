@@ -21,6 +21,7 @@
   "dependencies": {
     "express": "^4.18.2",
     "ip": "^1.1.8",
+    "qrcodejs": "^1.0.0",
     "reveal.js": "^4.4.0",
     "reveal.js-plugins": "^4.1.5",
     "ws": "^8.13.0"

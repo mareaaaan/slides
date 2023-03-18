@@ -1,6 +1,7 @@
 import {loadFileIntoEditor, downloadFile} from './fileio.js';
 import {deck, loadPreviewOnCtrlS, openPresentationWindow} from './slides.js';
 import { enableEditorTabs } from './editor.js';
+import QRCode from 'qrcodejs';
 
 const fileSelector = document.getElementById('file-selector');
 const saveButton = document.getElementById('save-button');
@@ -36,5 +37,6 @@ serverSocket.onmessage = ({data}) => {
         ipAddress = data.toString();
     }
 }
+
 
 deck.initialize();

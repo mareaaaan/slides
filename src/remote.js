@@ -21,4 +21,4 @@ function sendChangeSlide(direction) {
     } else if(direction== 'right') {
         serverSocket.send('right');
     }
-} 
+}
