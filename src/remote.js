@@ -1,6 +1,5 @@
 
-const socket = new WebSocket('ws://' + location.hostname + ':8002');
-
+const serverSocket = new WebSocket('ws://' + location.hostname + ':8002');
 
 const upArrow = document.getElementById('arrow-up');
 const leftArrow = document.getElementById('arrow-left');
@@ -14,12 +13,12 @@ rightArrow.addEventListener("click", () => {sendChangeSlide('right')});
 
 function sendChangeSlide(direction) {
     if(direction== 'up') {
-        socket.send('up');
+        serverSocket.send('up');
     } else if(direction== 'left') {
-        socket.send('left');
+        serverSocket.send('left');
     } else if(direction== 'down') {
-        socket.send('down');
+        serverSocket.send('down');
     } else if(direction== 'right') {
-        socket.send('right');
+        serverSocket.send('right');
     }
 } 

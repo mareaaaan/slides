@@ -21,9 +21,9 @@ compileButton.addEventListener('click', openPresentationWindow);
 
 var ipAddress;
 
-const socket = new WebSocket('ws://localhost:8003');
+const serverSocket = new WebSocket('ws://localhost:8003');
 
-socket.onmessage = ({data}) => {
+serverSocket.onmessage = ({data}) => {
     if(data == 'up') {
         deck.navigateUp();
     } else if(data == 'left') {
