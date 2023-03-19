@@ -1,7 +1,6 @@
 import {loadFileIntoEditor, downloadFile} from './fileio.js';
 import {deck, loadPreviewOnCtrlS, openPresentationWindow} from './slides.js';
 import { enableEditorTabs } from './editor.js';
-import QRCode from 'qrcodejs';
 
 const fileSelector = document.getElementById('file-selector');
 const saveButton = document.getElementById('save-button');
@@ -24,6 +23,9 @@ var ipAddress;
 
 const serverSocket = new WebSocket('ws://localhost:8003');
 
+var QRCode = require('qrcode')
+var canvas = document.getElementById('canvas')
+
 serverSocket.onmessage = ({data}) => {
     if(data == 'up') {
         deck.navigateUp();
@@ -35,8 +37,10 @@ serverSocket.onmessage = ({data}) => {
         deck.navigateRight();
     } else {
         ipAddress = data.toString();
+        QRCode.toCanvas(canvas, 'http://' + ipAddress + ':8001', function (error) {
+            if (error) console.error(error)
+          })
     }
 }
-
 
 deck.initialize();
