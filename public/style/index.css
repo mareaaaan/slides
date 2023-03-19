@@ -52,3 +52,9 @@ footer {
 #save-button {
     margin-top: auto;
 }
+
+.modal-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
