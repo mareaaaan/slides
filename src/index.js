@@ -6,6 +6,8 @@ const fileSelector = document.getElementById('file-selector');
 const saveButton = document.getElementById('save-button');
 const editor = document.getElementById('editor');
 const compileButton = document.getElementById('compile-button');
+const qrCanvas = document.getElementById('canvas');
+const serverSocket = new WebSocket('ws://localhost:8003');
 
 fileSelector.addEventListener('change', loadFileIntoEditor);
 
@@ -19,12 +21,14 @@ document.addEventListener('keydown', loadPreviewOnCtrlS);
 
 compileButton.addEventListener('click', openPresentationWindow);
 
-var ipAddress;
-
-const serverSocket = new WebSocket('ws://localhost:8003');
-
-var QRCode = require('qrcode')
-var canvas = document.getElementById('canvas')
+function createQrToRemote(hostname, qrElement) {
+    var QRCode = require('qrcode');
+    QRCode.toCanvas(qrElement, 'http://' + hostname + ':8001', function (error) {
+        if (error) {
+            console.error(error)
+        }
+    });
+}
 
 serverSocket.onmessage = ({data}) => {
     if(data == 'up') {
@@ -36,10 +40,8 @@ serverSocket.onmessage = ({data}) => {
     }  else if(data == 'right') {
         deck.navigateRight();
     } else {
-        ipAddress = data.toString();
-        QRCode.toCanvas(canvas, 'http://' + ipAddress + ':8001', function (error) {
-            if (error) console.error(error)
-          })
+        var ipAddress = data.toString();
+        createQrToRemote(ipAddress, qrCanvas);
     }
 }
 
