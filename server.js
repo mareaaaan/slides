@@ -16,6 +16,7 @@ slideApp.use(express.static('public'));
 
 remoteApp.use('/node_modules', express.static(__dirname + '/node_modules'));
 remoteApp.use('/dist', express.static(__dirname + '/dist'));
+remoteApp.use('/style', express.static(__dirname + '/public/style'));
 remoteApp.use(express.static('public/remote'));
 
 var slideserver = slideApp.listen(8000);
