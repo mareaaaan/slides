@@ -37,15 +37,14 @@ export const deck = new Reveal( document.querySelector( '.reveal' ), {
             pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
             radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
         },
-        plugins: [ Markdown , RevealHighlight, RevealMath.KaTeX, RevealAnimate, RevealChart],
-        //RevealChalkboard, RevealMenu
+        plugins: [ Markdown , RevealHighlight, RevealMath.KaTeX, RevealAnimate, RevealChart, RevealChalkboard, RevealMenu],
         embedded: true,
         keyboardCondition: 'focused',
         animate: {
             autoplay: true
         },
         mouseWheel: true,
-        menu: {},
+        menu: {width: '0px',},
     }   
 );
 
