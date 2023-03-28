@@ -15,11 +15,13 @@ export function loadPreviewOnCtrlS(event) {
     }
 }
 
-function reloadPreview() {
+async function reloadPreview() {
+    console.time("slide-load");
     let text = editor.value;
     deck.destroy();
     slides.innerHTML = text;
-    deck.initialize();
+    await deck.initialize();
+    console.timeEnd("slide-load");
 }
 
 export const deck = new Reveal( document.querySelector( '.reveal' ), {
