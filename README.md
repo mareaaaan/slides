@@ -2,7 +2,7 @@
 
 A simple application to create slides by writing HTML and Markdown.
 
-## slides
+## Insturctions
 
 To install the application:
 
